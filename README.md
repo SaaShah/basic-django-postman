@@ -6,4 +6,11 @@ doc: http://django-postman.readthedocs.org/en/latest/
 
 # Err101 - Connection Refused
 python -m smtpd -n -c DebuggingServer localhost:1025
+
 Use this for a development debugging server.
+
+settings.py
+
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 1025

@@ -3,7 +3,7 @@
 {% load pipeline %}
 <head lang="en">
 
-    <title>Title</title>
+    {% block title %}{% endblock %}
     <meta name="description" content="description"/>
     <meta name="keywords" content="keywords, comma separated values,"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,7 +23,8 @@
     {% stylesheet 'bootstrap' %}
     {% stylesheet 'animate' %}
     <link rel="stylesheet" href="/static/css/normalize.css">
-
+    {% block extrahead %}
+    {% endblock extrahead %}
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -46,46 +47,10 @@
         </div>
     </div>
 
-    {% for x in '1,2,3' %}
-    <div class='row'>
-        <div class='container'>
-
-            <div class='animatedParent'>
-                <hr class='animated fadeIn slow'/>
-            </div>
-
-            <!-- Animate Once -->
-            <div class='animatedParent row article' data-appear-top-offset='-100'>
-                <h3 class='animated bounceInDown'>Animate Once</h3>
-
-                <div class='col-md-6'>
-                    <p class='animated bounceInLeft slow'>
-                        Adding this will make sure the item only animates once and will not reset when it leaves the
-                        viewport.
-                    </p>
-                </div>
-                <div class='animatedParent col-md-6'>
-<pre class='animated bounceInRight slow'>
-&lt;div class='animatedParent <span class='highlighter'>animateOnce</span>'&gt;
-&lt;h2 class='animated bounceInDown'&gt;It Works!&lt;/h2&gt;
-&lt;/div&gt;
-</pre>
-                    <div>
-                        <button type="submit" class="btn btn-primary hvr-bounce-in">
-                            Button
-                            {% bootstrap_icon "star" %}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class='animatedParent'>
-                <hr class='animated fadeIn slow'/>
-            </div>
-
-        </div>
-    </div>
-    {% endfor %}
+    {% block postman_menu %}
+    {% endblock postman_menu %}
+    {% block content %}
+    {% endblock content %}
 
 </div>
 <!-- page container close -->
